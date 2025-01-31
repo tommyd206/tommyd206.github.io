@@ -87,7 +87,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Site Reliability Engineering # blog_name will be displayed in your blog page
+blog_name: tommyd206 # blog_name will be displayed in your blog page
 blog_description: all things SRE
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
@@ -250,7 +250,7 @@ jekyll-archives:
     tag: "/blog/tag/:name/"
     category: "/blog/category/:name/"
 
-display_tags: ["terraform"] # these tags will be displayed on the front page of your blog
+display_tags: ["terraform", "github_actions", "python"] # these tags will be displayed on the front page of your blog
 display_categories: [] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
