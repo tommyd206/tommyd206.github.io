@@ -51,15 +51,15 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/blog/";
               },
-            },{id: "post-a-post-with-code",
+            },{id: "post-terraform",
       
-        title: "a post with code",
+        title: "terraform",
       
-      description: "an example of a blog post with some code",
+      description: "automating infra e2e with terraform",
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/2015/code/";
+          window.location.href = "/blog/2025/code/";
         
       },
     },{id: "projects-project-1",
