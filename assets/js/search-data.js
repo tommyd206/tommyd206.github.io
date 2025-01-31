@@ -37,13 +37,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/resume2/";
           },
-        },{id: "nav-people",
-          title: "people",
-          description: "members of the lab or group",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/people/";
-          },
         },{id: "dropdown-projects",
               title: "projects",
               description: "",
