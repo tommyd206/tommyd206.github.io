@@ -22,40 +22,42 @@ layout: default
     {% include giscus.liquid %}
   {% endif %}
 
-  <!-- Utterances Comment Section -->
-  <div id="utterances-container"></div>
+  {% if page.is_project_page %}
+    <!-- Utterances Comment Section -->
+    <div id="utterances-container"></div>
 
-  <script>
-    function getUtterancesTheme() {
-      // Detects theme from <html data-theme="dark"> or default to system preference
-      let theme = document.documentElement.getAttribute('data-theme') || 
-                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    <script>
+      function getUtterancesTheme() {
+        // Detects theme from <html data-theme="dark"> or default to system preference
+        let theme = document.documentElement.getAttribute('data-theme') || 
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
-      return theme === 'dark' ? 'github-dark' : 'github-light';
-    }
-
-    function loadUtterances() {
-      let script = document.createElement('script');
-      script.src = 'https://utteranc.es/client.js';
-      script.setAttribute('repo', 'tommyd206/tommyd206.github.io');
-      script.setAttribute('issue-term', 'title');
-      script.setAttribute('theme', getUtterancesTheme());
-      script.setAttribute('crossorigin', 'anonymous');
-      script.setAttribute('async', 'true');
-      document.getElementById('utterances-container').appendChild(script);
-    }
-
-    loadUtterances();
-
-    // Listen for theme changes if al-folio allows toggling themes dynamically
-    const observer = new MutationObserver(() => {
-      let theme = getUtterancesTheme();
-      let iframe = document.querySelector('.utterances-frame');
-      if (iframe) {
-        iframe.contentWindow.postMessage({ type: 'set-theme', theme }, 'https://utteranc.es');
+        return theme === 'dark' ? 'github-dark' : 'github-light';
       }
-    });
 
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-  </script>
+      function loadUtterances() {
+        let script = document.createElement('script');
+        script.src = 'https://utteranc.es/client.js';
+        script.setAttribute('repo', 'tommyd206/tommyd206.github.io');
+        script.setAttribute('issue-term', 'pathname');
+        script.setAttribute('theme', getUtterancesTheme());
+        script.setAttribute('crossorigin', 'anonymous');
+        script.setAttribute('async', 'true');
+        document.getElementById('utterances-container').appendChild(script);
+      }
+
+      loadUtterances();
+
+      // Listen for theme changes if al-folio allows toggling themes dynamically
+      const observer = new MutationObserver(() => {
+        let theme = getUtterancesTheme();
+        let iframe = document.querySelector('.utterances-frame');
+        if (iframe) {
+          iframe.contentWindow.postMessage({ type: 'set-theme', theme }, 'https://utteranc.es');
+        }
+      });
+
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    </script>
+  {% endif %}
 </div>
